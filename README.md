@@ -55,7 +55,7 @@ Pull requests and bug reports are always welcome!
 ## System Requirements
 
 * Ruby v1.8.7 or v1.9.2
-* MySQL v4.1.1 or later (v5+ is recommended), SQLite v3.4 or later, or Postgres 8.4.8 or later.
+* MySQL v5.0 or later, SQLite v3.4 or later, or Postgres 8.4.8 or later.
 * ImageMagick (optional, only needed if you would like to use avatars)
 
 (Ruby on Rails v3 and other gem dependencies will be installed automatically by Bundler.)
@@ -75,8 +75,9 @@ needs to be updated.
 Please run the following commands in this order:
 
 ```bash
-bundle install --without heroku   # Installs gem dependencies
-rake crm:upgrade:schema           # Updates your schema to use the new timestamped migrations
+gem install bundler               # Install the latest version of Bundler gem.
+bundle install --without heroku   # Installs gem dependencies.
+rake crm:upgrade:schema           # Updates your schema to use the new timestamped migrations.
 rake db:migrate                   # Runs any new database migrations.
 ```
 
@@ -105,7 +106,7 @@ heroku config:add HEROKU=true
 
 #### Set Up Configuration (Database & Settings)
 
-Fat Free CRM supports PostGreSQL, MySQL and SQLite databases. The source code comes with
+Fat Free CRM supports MySQL, PostgreSQL, and SQLite databases. The source code comes with
 sample database configuration files, such as: <tt>config/database.mysql.yml</tt>
 for MySQL and <tt>config/database.sqlite.yml</tt> for SQLite.
 
@@ -117,7 +118,7 @@ cp config/database.mysql.yml config/database.yml
 
 * Edit <tt>config/database.yml</tt> and specify database names and authentication details.
 
-* Then, edit your <tt>Gemfile</tt> and uncomment only your chosen database.
+* Then, edit your <tt>Gemfile</tt> and uncomment your chosen database gem (only one!).
 
 
 #### Install Gem Dependencies
@@ -126,6 +127,7 @@ After you have uncommented the right database adapter in your <tt>Gemfile</tt>,
 run the following command from the application's root directory:
 
 ```bash
+gem install bundler
 bundle install --without heroku
 ```
 

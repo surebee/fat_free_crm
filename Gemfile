@@ -4,9 +4,9 @@ gem 'rails', '3.1.3'
 
 # Uncomment the database that you have configured in config/database.yml
 # ----------------------------------------------------------------------
-# gem "mysql2", "0.3.10"
-# gem "sqlite3"
-gem "pg", "0.12.0"
+gem "mysql2", "0.3.11"    # MySQL
+# gem "sqlite3"           # SQLite
+# gem "pg", "0.12.0"      # Postgres
 
 gem 'authlogic',           '~> 3.1.0'
 gem 'acts_as_commentable', '>= 3.0.1'
@@ -30,7 +30,9 @@ end
 
 group :development, :test do
   gem 'ruby-debug',   :platform => :mri_18
-  gem 'ruby-debug19', :platform => :mri_19, :require => 'ruby-debug'
+  if RUBY_VERSION > '1.9.3' # See http://blog.wyeworks.com/2011/11/1/ruby-1-9-3-and-ruby-debug
+    gem 'ruby-debug19', :platform => :mri_19, :require => 'ruby-debug'
+  end
   gem 'annotate',           '~> 2.4.1.beta', :require => false
   gem 'awesome_print',      '>= 0.3.1'
 
