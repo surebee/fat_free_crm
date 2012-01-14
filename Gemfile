@@ -47,6 +47,7 @@ end
 group :development do
   platforms :ruby do
     # These gems give you an awesome development environment.
+    gem 'active_reload'
     gem 'thin'
     gem 'guard'             # https://github.com/guard/guard
     gem 'guard-rails'       # https://github.com/guard/guard-rails

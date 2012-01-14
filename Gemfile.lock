@@ -15,6 +15,7 @@ GEM
       rack-mount (~> 0.8.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.0.3)
+    active_reload (0.6.1)
     activemodel (3.1.3)
       activesupport (= 3.1.3)
       builder (~> 3.0.0)
@@ -218,6 +219,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_reload
   acts-as-taggable-on (~> 2.2.1)
   acts_as_commentable (~> 3.0.1)
   acts_as_list (~> 0.1.4)
