@@ -1,7 +1,7 @@
 = styles_for :contact
 
 .title_tools
-  = link_to_inline(:create_contact, new_contact_path, :text=> t(:create_contact)) << " | "
+  -# = link_to_inline(:create_contact, new_contact_path, :text=> t(:create_contact)) << " | "
   = link_to_inline(:options, options_contacts_path, :text=> t(:options))
 
 .title
@@ -13,8 +13,8 @@
 .list#contacts
   - if @contacts.any?
     = render @contacts
-  - else
-    = render "shared/empty"
+-#  - else
+-#    = render "shared/empty"
 
 #paginate= render "shared/paginate"
 #export= render "shared/export"
