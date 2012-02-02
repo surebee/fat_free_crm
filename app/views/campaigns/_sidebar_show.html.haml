@@ -30,19 +30,14 @@
   -# Target Opportunities: calculated based on target number of leads and
   -# expected conversion ratio.
   -#---------------------------------------------------------------------------
-  %li
+  %li.last
     - if @campaign.target_leads.to_i > 0 && @campaign.target_conversion.to_i > 0
       - opportunities = @campaign.target_leads * @campaign.target_conversion / 100
       %dt= opportunities.to_i
     - else
       %dt N/A
-    %tt #{t :opportunities}:
+    %tt #{t :new_opportunities}:
 
-  -# Target Revenue.
-  -#---------------------------------------------------------------------------
-  %li.last
-    %dt= number_to_currency(@campaign.target_revenue, :precision => 0) || t(:n_a)
-    %tt #{t :revenue}:
 
   .caption #{t :actual_performance}
 
@@ -51,41 +46,3 @@
   %li
     %dt= @campaign.leads_count || t(:n_a)
     %tt== #{t :leads}: #{performance(@campaign.leads_count, @campaign.target_leads)}
-
-  -# Actual Conversion Ratio: calculated based on actual number of leads
-  -# and opportunities.
-  -#---------------------------------------------------------------------------
-  %li
-    - if @campaign.opportunities_count.to_i > 0 && @campaign.leads_count.to_i > 0
-      - conversion = @campaign.opportunities_count * 100 / @campaign.leads_count
-      %dt= number_to_percentage(conversion, :precision => 1)
-      %tt== #{t :conversion}: #{performance(conversion, @campaign.target_conversion)}
-    - else
-      %dt #{t :n_a}
-      %tt #{t :conversion}:
-
-  -# Actual Opportunities.
-  -#---------------------------------------------------------------------------
-  %li
-    %dt= @campaign.opportunities_count || t(:n_a)
-    %tt
-      #{t :opportunities}:
-      = performance(@campaign.opportunities_count, opportunities)
-
-  -# Actual Revenue.
-  -#---------------------------------------------------------------------------
-  %li.last
-    %dt= number_to_currency(@campaign.revenue, :precision => 0) || t(:n_a)
-    %tt== #{t :revenue}: #{performance(@campaign.revenue, @campaign.target_revenue)}
-
-  - unless @campaign.background_info.blank?
-    .caption #{t :background_info}
-    = auto_link(simple_format @campaign.background_info).html_safe
-
-  = render "fields/sidebar_show", :asset => @campaign
-
-  - if @campaign.tag_list.present?
-    %dt
-      .tags= tags_for_index(@campaign)
-
-  = hook(:show_campaign_sidebar_bottom, self, :campaign => @campaign)
