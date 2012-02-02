@@ -18,10 +18,6 @@
           = f.text_field :target_conversion, :style => "width:110px; text-align:right;"
         %td= spacer
         %td
-          .label #{t :revenue_label}:
-          = f.text_field :target_revenue, :value => @campaign.target_revenue ? @campaign.target_revenue.to_i : "", :style => "width:110px; text-align:right;"
-        %td= spacer
-        %td
           .label #{t :budget_label}:
           = f.text_field :budget, :value => @campaign.budget ? @campaign.budget.to_i : "", :style => "width:110px; text-align:right;"
       %tr
