@@ -20,6 +20,18 @@
         == #{t :related} #{link_to(h(pending.asset.name), polymorphic_url(pending.asset))}
       &ndash;
     %tt
+      -# Hack to deduct 5hrs 30mins if the the pending.due_at
+      -# shows time like that when we are selecting a specific
+      -# date, won't work when we have non IST times or when
+      -# time is appended with the date
+      - due_time = pending.due_at.to_i
+      - due_time_str = pending.due_at.to_s
+      - if due_time_str.include?("05:30:00 +0530")
+        - due_time = due_time - 330*60
+      - due_time_display = Time.at(due_time)
+      - current_time = Time.now.to_i 
+      - due_date = due_time_display.to_date()
+
       - if pending.bucket == "due_asap"
         %span.urgent= t(:task_due_now)
 
@@ -28,21 +40,21 @@
 
       - else
         - if pending.at_specific_time?
-          - if pending.due_at < Time.now
-            %span.warn= distance_of_time_in_words(pending.due_at, Time.now)
+          - if due_time < current_time
+            %span.warn= distance_of_time_in_words(due_time, current_time)
             = t(:task_overdue)
-            = l(pending.due_at.localtime, :format => :mmddhhss)
+            = l(due_time_display, :format => :mmddhhss)
           - else
-            = t(:task_due_in, distance_of_time_in_words(Time.now, pending.due_at))
-            = '(' << l(pending.due_at.localtime, :format => :mmddhhss) << ')'
+            = t(:task_due_in, distance_of_time_in_words(current_time, due_time))
+            = '(' << l(due_time_display, :format => :mmddhhss) << ')'
 
         - else
-          - if pending.due_at < Date.today
-            %span.warn= distance_of_time_in_words(pending.due_at, Time.now)
+          - if due_date < Date.today
+            %span.warn= distance_of_time_in_words(due_time, current_time)
             = t(:task_overdue)
-            = l(pending.due_at.localtime.to_date, :format => :mmdd)
-          - elsif pending.due_at > Date.today
-            = t(:task_due_in, distance_of_time_in_words(Time.now, pending.due_at.localtime.end_of_day))
+            = l(due_time_display.to_date, :format => :mmdd)
+          - elsif due_date > Date.today
+            = t(:task_due_in, distance_of_time_in_words(current_time, due_time_display.localtime.end_of_day.to_i))
           - else
             %span.cool= t(:task_due_today)
 
