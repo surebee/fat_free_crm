@@ -301,6 +301,7 @@ en-ASH:
   shipping_address: Shipping address
   total_accounts: Total Wards
   website: Website
+  total_voters: Total Voters
 
   # Views -> Campaigns.
   #----------------------------------------------------------------------------
