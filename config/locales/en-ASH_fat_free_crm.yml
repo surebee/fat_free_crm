@@ -661,13 +661,18 @@ en-ASH:
   date:
     formats:
       mmddyyyy: "%m/%d/%Y"
+      ddmmyyyy: "%d/%m/%Y"
       mmdd: "%b %e"
+      ddmm: "%e %b"
       mmddyy: "%b %e, %Y"
+      ddmmyy: "%e %b, %Y"
 
   time:
     formats:
       mmddhhss: "%b %e at %l:%M%p"
+      ddmmhhss: "%e %b at %l:%M%p"
       mmddyyyy_hhmm: "%m/%d/%Y %l:%M %p"
+      ddmmyyyy_hhmm: "%d/%m/%Y %l:%M %p"
 
   calendar_date_select:
     ok: OK
@@ -677,7 +682,7 @@ en-ASH:
 
   # If you need custom format look at
   # http://code.google.com/p/calendardateselect/wiki/ChangingDateFormatCustom
-  calendar_date_select_format: american
+  calendar_date_select_format: indian
 
   # will_paginate translations copied for 'en-US'
   #----------------------------------------------------------------------------

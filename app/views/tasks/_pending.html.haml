@@ -42,16 +42,16 @@
           - if due_time < current_time
             %span.warn= distance_of_time_in_words(due_time, current_time)
             = t(:task_overdue)
-            = l(due_time_display, :format => :mmddhhss)
+            = l(due_time_display, :format => :ddmmhhss)
           - else
             = t(:task_due_in, distance_of_time_in_words(current_time, due_time))
-            = '(' << l(due_time_display, :format => :mmddhhss) << ')'
+            = '(' << l(due_time_display, :format => :ddmmhhss) << ')'
 
         - else
           - if due_date < Date.today
             %span.warn= distance_of_time_in_words(due_time, current_time)
             = t(:task_overdue)
-            = l(due_time_display.to_date, :format => :mmdd)
+            = l(due_time_display.to_date, :format => :ddmm)
           - elsif due_date > Date.today
             = t(:task_due_in, distance_of_time_in_words(current_time, due_time_display.localtime.end_of_day.to_i))
           - else

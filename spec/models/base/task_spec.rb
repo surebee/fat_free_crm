@@ -152,8 +152,8 @@ describe Task do
       task = Factory(:task, :due_at => due_at, :bucket => "specific_time",
                             :calendar => due_at.strftime(
                               I18n.t(Setting.task_calendar_with_time ?
-                                      'time.formats.mmddyyyy_hhmm' :
-                                      'date.formats.mmddyyyy')))
+                                      'time.formats.ddmmyyyy_hhmm' :
+                                      'date.formats.ddmmyyyy')))
       task.update_attributes(:completed_at => Time.now, :completed_by => @current_user.id, :calendar => '')
       task.completed?.should == true
       # Setting.task_calendar_with_time == false, so due_at should be tested without HH:MM

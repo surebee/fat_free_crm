@@ -21,9 +21,9 @@ class DateTimeInput < SimpleForm::Inputs::DateTimeInput
     def datetime_options(value = nil)
       return {} if value.nil?
       params = if input_type =~ /time/
-        [value.localtime, {:format => :mmddyyyy_hhmm}]
+        [value.localtime, {:format => :ddmmyyyy_hhmm}]
       else
-        [value.to_date, {:format => :mmddyyyy}]
+        [value.to_date, {:format => :ddmmyyyy}]
       end
       { :value => I18n.localize(*params).html_safe }
     end

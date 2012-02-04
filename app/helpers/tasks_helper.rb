@@ -99,13 +99,13 @@ module TasksHelper
       elsif task.bucket == "due_later"
         t(:task_due_later)
       else
-        l(task.due_at.localtime, :format => :mmddhhss)
+        l(task.due_at.localtime, :format => :ddmmhhss)
       end
     else # completed
       summary << "#{t(:related)} #{task.asset.name} (#{task.asset_type.downcase})" if task.asset_id?
       summary << t(:task_completed_by,
                    :time_ago => distance_of_time_in_words(task.completed_at, Time.now),
-                   :date     => l(task.completed_at.localtime, :format => :mmddhhss),
+                   :date     => l(task.completed_at.localtime, :format => :ddmmhhss),
                    :user     => task.completor.full_name)
     end
     summary.join(', ')

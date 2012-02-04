@@ -54,11 +54,11 @@ module Admin::UsersHelper
     summary << "#{t :phone_small}: #{user.phone}" unless user.phone.blank?
     summary << "#{t :mobile_small}: #{user.mobile}" unless user.mobile.blank?
     summary << if !user.suspended?
-      t(:user_since, l(user.created_at.to_date, :format => :mmddyy))
+      t(:user_since, l(user.created_at.to_date, :format => :ddmmyy))
     elsif user.awaits_approval?
-      t(:user_signed_up_on, l(user.created_at, :format => :mmddhhss))
+      t(:user_signed_up_on, l(user.created_at, :format => :ddmmhhss))
     else
-      t(:user_suspended_on, l(user.created_at.to_date, :format => :mmddyy))
+      t(:user_suspended_on, l(user.created_at.to_date, :format => :ddmmyy))
     end
     summary << if user.awaits_approval?
       t(:user_signed_up)

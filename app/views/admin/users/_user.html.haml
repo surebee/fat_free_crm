@@ -49,8 +49,8 @@
       = "#{t :mobile_small}: <b>".html_safe + user.mobile << "</b> | ".html_safe if user.mobile?
 
       - if !user.suspended?
-        %span #{t(:user_since, l(user.created_at.to_date, :format => :mmddyy))}
+        %span #{t(:user_since, l(user.created_at.to_date, :format => :ddmmyy))}
       - elsif user.awaits_approval?
-        %b.cool #{t(:user_signed_up_on, l(user.created_at, :format => :mmddhhss))}
+        %b.cool #{t(:user_signed_up_on, l(user.created_at, :format => :ddmmhhss))}
       - else
-        %span.warn #{t(:user_suspended_on, l(user.created_at.to_date, :format => :mmddyy))}
+        %span.warn #{t(:user_suspended_on, l(user.created_at.to_date, :format => :ddmmyy))}

@@ -43,7 +43,7 @@ module OpportunitiesHelper
       summary << amount.join(' ')
     end
     if opportunity.closes_on
-      summary << t(:closing_date, l(opportunity.closes_on, :format => :mmddyy))
+      summary << t(:closing_date, l(opportunity.closes_on, :format => :ddmmyy))
     else
       summary << t(:no_closing_date)
     end
