@@ -20,14 +20,13 @@
         == #{t :related} #{link_to(h(pending.asset.name), polymorphic_url(pending.asset))}
       &ndash;
     %tt
-      -# Hack to deduct 5hrs 30mins if the the pending.due_at
-      -# shows time like that when we are selecting a specific
-      -# date, won't work when we have non IST times or when
-      -# time is appended with the date
       - due_time = pending.due_at.to_i
-      - due_time_str = pending.due_at.to_s
-      - if due_time_str.include?("05:30:00 +0530")
-        - due_time = due_time - 330*60
+
+      -# If specific date/time selected seems the due_at
+      -# is wrong by pending.created_at.gmt_offset
+      - if pending.at_specific_time?
+        - due_time -= pending.created_at.gmt_offset
+
       - due_time_display = Time.at(due_time)
       - current_time = Time.now.to_i 
       - due_date = due_time_display.to_date()
