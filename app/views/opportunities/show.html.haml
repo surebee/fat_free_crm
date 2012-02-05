@@ -1,4 +1,4 @@
-= styles_for :task, :contact
+= styles_for :task
 
 #confirm{ hidden }
 .title_tools#menu
@@ -17,11 +17,5 @@
   .log#tasks
     = render "shared/tasks"
 
-  = section(@opportunity, :contacts)
-  .list#contacts
-    - @contacts = @opportunity.contacts.paginate(:page => 1, :per_page => 20)
-    = render :partial => "contacts/contact", :collection => @opportunity.contacts.paginate(:page => 1, :per_page => 20)
-  = will_paginate @contacts, :id => true, :params => {:action => :contacts}
-
-  = load_select_popups_for(@opportunity, :tasks, :contacts)
+  = load_select_popups_for(@opportunity, :tasks)
 
