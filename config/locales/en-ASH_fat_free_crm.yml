@@ -432,6 +432,10 @@ en-ASH:
   probability_number: and %{value} probability
   save_opportunity: Save Existing Voter
   stage: Stage
+  age: Age
+  sex: Sex
+  father_name: Father's Name
+  voters_in_family: Voters In Family
   total_opportunities: Total Existing Voters
   weighted_amount: Weighted amount
 

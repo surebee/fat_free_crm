@@ -47,6 +47,9 @@ class Opportunity < ActiveRecord::Base
   has_many    :contacts, :through => :contact_opportunities, :uniq => true, :order => "contacts.id DESC"
   has_many    :tasks, :as => :asset, :dependent => :destroy, :order => 'created_at DESC'
   has_many    :activities, :as => :subject, :order => 'created_at DESC'
+  has_one     :business_address, :dependent => :destroy, :as => :addressable, :class_name => "Address", :conditions => "address_type='Business'"
+
+  accepts_nested_attributes_for :business_address, :allow_destroy => true
   has_many    :emails, :as => :mediator
 
   scope :state, lambda { |filters|
