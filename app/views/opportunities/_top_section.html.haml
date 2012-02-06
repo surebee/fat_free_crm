@@ -7,16 +7,34 @@
           = f.text_field :name, :style => "width:325px"
         %td= spacer
         %td
-          .label.req.top #{t :stage}:
-          = f.select :stage, @stage, { :selected => @opportunity.stage ? @opportunity.stage.to_sym : nil }, { :style => "width:160px" }
-
-    %table{ :border => 0, :width => 500, :cellpadding => 0, :cellspacing => 0 }
+          .label #{t :age}:
+          = f.text_field :age, :style => "width:20px"
+        %td= spacer
+        %td
+          .label #{t :sex}:
+          = f.text_field :sex, :style => "width:10px"
+        %td= spacer
+    %table
       %tr
         %td
-          .label #{t :close_date}:
-          = f.text_field :closes_on, :value => f.object.closes_on ? l(f.object.closes_on, :format => :ddmmyyyy) : "", :style => "width:110px;", :autocomplete => :off
-        %td= spacer
+          .label #{t :phone}:
+          = f.text_field :phone
 
+        %td= spacer
+        %td
+          .label #{t :email}:
+          = f.text_field :email
+        %td= spacer
+    %table
+      %tr
+        %td
+          .label #{t :father_name}:
+          = f.text_field :father_name, :style => "width:325px"
+        %td= spacer
+        %td
+          .label #{t :voters_in_family}:
+          = f.text_field :voters_in_family, :style => "width:20px"
+        %td= spacer
     = fields_for(@account) do |a|
       = a.hidden_field :user_id
       = a.hidden_field :access
@@ -40,9 +58,19 @@
             = a.text_field :name, :style => "width:324px; display:none;"
           %td= spacer
           %td
+            .label #{t :stage}:
+            = f.select :stage, @stage, { :selected => @opportunity.stage ? @opportunity.stage.to_sym : nil }, { :style => "width:160px" }
+          %td= spacer
+      %table
+        %tr
+          %td
             .label.req #{t :assigned_to}:
             = collection_select :opportunity, :assigned_to, @users, :id, :full_name, { :include_blank => t(:myself) }, { :style => "width:160px" }
 
+          %td= spacer
+          %td
+            .label #{t :close_date}:
+            = f.text_field :closes_on, :value => f.object.closes_on ? l(f.object.closes_on, :format => :ddmmyyyy) : "", :style => "width:110px;", :autocomplete => :off
         - if Setting.background_info && Setting.background_info.include?(:opportunity)
           %tr
             %td(colspan="3")
