@@ -1,4 +1,32 @@
 .panel#summary
+  %span{:style => "float:right"}= gravatar_for(@opportunity, :size => "50x50")
+  %h4= h(@opportunity.name)
+  - if !@opportunity.title.blank? && @opportunity.company
+    -# works_at: "{{h(job_title)}} at {{h(company)}}"
+    %div= t(:works_at, :job_title => h(@opportunity.title), :company => h(@opportunity.company))
+  - elsif !@opportunity.title.blank?
+    %div= h(@opportunity.title)
+  - elsif @opportunity.company
+    %div= h(@opportunity.company)
+  - unless @opportunity.department.blank?
+    = t(:department_small, h(@opportunity.department))
+
+  %div= render "shared/address_show", :asset => @opportunity, :type => 'business', :title => :address
+
+  %div
+    - unless @opportunity.phone.blank?
+      == #{t :phone}: <b>#{@opportunity.do_not_call ? content_tag(:strike, h(@opportunity.phone)) : h(@opportunity.phone)}</b><br />
+    - unless @opportunity.mobile.blank?
+      == #{t :mobile}: <b>#{@opportunity.do_not_call ? content_tag(:strike, h(@opportunity.mobile)) : h(@opportunity.mobile)}</b><br />
+    - unless @opportunity.fax.blank?
+      == #{t :fax}: <b>#{@opportunity.do_not_call ? content_tag(:strike, h(@opportunity.fax)) : h(@opportunity.fax)}</b><br />
+  %div
+    - unless @opportunity.email.blank?
+      == #{t :email}: <b>#{link_to_email(@opportunity.email)}</b><br />
+    - unless @opportunity.alt_email.blank?
+      == #{t :alt_email_small}: <b>#{link_to_email(@opportunity.alt_email)}</b><br />
+
+  = web_presence_icons(@opportunity)
   .caption #{t :opportunity_summary}
   %li
     %dt= @opportunity.stage ? t(@opportunity.stage) : t(:other)
