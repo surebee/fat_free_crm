@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111209175716) do
+ActiveRecord::Schema.define(:version => 20120205145839) do
 
   create_table "account_contacts", :force => true do |t|
     t.integer  "account_id"
@@ -96,16 +96,16 @@ ActiveRecord::Schema.define(:version => 20111209175716) do
   create_table "campaigns", :force => true do |t|
     t.integer  "user_id"
     t.integer  "assigned_to"
-    t.string   "name",                :limit => 64,                                :default => "",       :null => false
-    t.string   "access",              :limit => 8,                                 :default => "Public"
+    t.string   "name",                :limit => 64, :default => "",       :null => false
+    t.string   "access",              :limit => 8,  :default => "Public"
     t.string   "status",              :limit => 64
-    t.decimal  "budget",                            :precision => 12, :scale => 2
+    t.decimal  "budget"
     t.integer  "target_leads"
     t.float    "target_conversion"
-    t.decimal  "target_revenue",                    :precision => 12, :scale => 2
+    t.decimal  "target_revenue"
     t.integer  "leads_count"
     t.integer  "opportunities_count"
-    t.decimal  "revenue",                           :precision => 12, :scale => 2
+    t.decimal  "revenue"
     t.date     "starts_on"
     t.date     "ends_on"
     t.text     "objectives"
@@ -213,10 +213,10 @@ ActiveRecord::Schema.define(:version => 20111209175716) do
     t.string   "hint"
     t.string   "placeholder"
     t.string   "as",             :limit => 32
-    t.text     "collection"
+    t.text     "collection",     :limit => 255
     t.boolean  "disabled"
     t.boolean  "required"
-    t.integer  "maxlength"
+    t.integer  "maxlength",      :limit => 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -228,29 +228,35 @@ ActiveRecord::Schema.define(:version => 20111209175716) do
     t.integer  "user_id"
     t.integer  "campaign_id"
     t.integer  "assigned_to"
-    t.string   "first_name",      :limit => 64,  :default => "",       :null => false
-    t.string   "last_name",       :limit => 64,  :default => "",       :null => false
-    t.string   "access",          :limit => 8,   :default => "Public"
-    t.string   "title",           :limit => 64
-    t.string   "company",         :limit => 64
-    t.string   "source",          :limit => 32
-    t.string   "status",          :limit => 32
-    t.string   "referred_by",     :limit => 64
-    t.string   "email",           :limit => 64
-    t.string   "alt_email",       :limit => 64
-    t.string   "phone",           :limit => 32
-    t.string   "mobile",          :limit => 32
-    t.string   "blog",            :limit => 128
-    t.string   "linkedin",        :limit => 128
-    t.string   "facebook",        :limit => 128
-    t.string   "twitter",         :limit => 128
-    t.integer  "rating",                         :default => 0,        :null => false
-    t.boolean  "do_not_call",                    :default => false,    :null => false
+    t.string   "first_name",       :limit => 64,  :default => "",       :null => false
+    t.string   "last_name",        :limit => 64,  :default => "",       :null => false
+    t.string   "access",           :limit => 8,   :default => "Public"
+    t.string   "title",            :limit => 64
+    t.string   "company",          :limit => 64
+    t.string   "source",           :limit => 32
+    t.string   "status",           :limit => 32
+    t.string   "referred_by",      :limit => 64
+    t.string   "email",            :limit => 64
+    t.string   "alt_email",        :limit => 64
+    t.string   "phone",            :limit => 32
+    t.string   "mobile",           :limit => 32
+    t.string   "blog",             :limit => 128
+    t.string   "linkedin",         :limit => 128
+    t.string   "facebook",         :limit => 128
+    t.string   "twitter",          :limit => 128
+    t.integer  "rating",                          :default => 0,        :null => false
+    t.boolean  "do_not_call",                     :default => false,    :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "background_info"
-    t.string   "skype",           :limit => 128
+    t.string   "skype",            :limit => 128
+    t.integer  "age"
+    t.boolean  "sex"
+    t.string   "father_name"
+    t.string   "voters_in_family"
+    t.string   "pan"
+    t.date     "visited_on"
   end
 
   add_index "leads", ["assigned_to"], :name => "index_leads_on_assigned_to"
@@ -260,18 +266,39 @@ ActiveRecord::Schema.define(:version => 20111209175716) do
     t.integer  "user_id"
     t.integer  "campaign_id"
     t.integer  "assigned_to"
-    t.string   "name",            :limit => 64,                                :default => "",       :null => false
-    t.string   "access",          :limit => 8,                                 :default => "Public"
-    t.string   "source",          :limit => 32
-    t.string   "stage",           :limit => 32
+    t.string   "name",             :limit => 64, :default => "",       :null => false
+    t.string   "access",           :limit => 8,  :default => "Public"
+    t.string   "source",           :limit => 32
+    t.string   "stage",            :limit => 32
     t.integer  "probability"
-    t.decimal  "amount",                        :precision => 12, :scale => 2
-    t.decimal  "discount",                      :precision => 12, :scale => 2
+    t.decimal  "amount"
+    t.decimal  "discount"
     t.date     "closes_on"
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "background_info"
+    t.integer  "age"
+    t.boolean  "sex"
+    t.string   "father_name"
+    t.string   "voters_in_family"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "pan"
+    t.date     "visited_on"
+    t.string   "title"
+    t.string   "company"
+    t.string   "alt_email"
+    t.string   "mobile"
+    t.string   "referred_by"
+    t.boolean  "do_not_call"
+    t.string   "facebook"
+    t.string   "blog"
+    t.string   "twitter"
+    t.string   "skype"
+    t.string   "linkedin"
+    t.string   "fax"
+    t.string   "department"
   end
 
   add_index "opportunities", ["assigned_to"], :name => "index_opportunities_on_assigned_to"
