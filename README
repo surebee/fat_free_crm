@@ -1,0 +1,46 @@
+Ashwin's Campaign Portal
+========================
+
+We have *clusters*, which are basically campaings to register
+multiple voters for MLC elections.
+
+It works like this, if somebody thinks can get some graduates in
+their circle (be it their immediate friends, family, members of an
+organization, or some random guys they meet on street) to register
+for the election, then we can give them a user name/password in the
+system and they can launch a campain to from a start date, till an
+end date to register x number of people. During the registration
+process each of these registrants go through the following steps,
+like application filled up, application  attested, application
+submitted. Each of the registrants can be 'Converted' to a 'New
+Voter' by pressing the 'Convert' link on top of their names. By
+doing so, the registrant will be in the new Voters list for the MLC
+elections.
+
+When they are converted, the registrant will be 'On Roll' -  means
+they are on the election roll.
+
+It the application is rejected, we will update the status likewise
+and have to go through the process again to make them on Roll.
+
+Each people 'On Roll' also will appear as a 'New Voter' in that tab.
+
+When you're converting a registrant as a New Voter, we need to input
+the Ward info which the 'New Voter' belongs to.
+
+The 'Existing Voters' tab is used for keping track of volunteers
+visit to people who are aready in the voters database. Existing
+voters tab will help to record our interactions with the current
+voters and how many we were able to close as a potential vote for
+Ashwin.
+
+When we are looking into the Ward, we can see how many New Voters
+and Existing Voters are there in the ward. Currently all of the
+Existing Voters recordded within a ward appears, but more useful
+information will be to show the all the New Voters plus the Existing
+Voters we closed/won for Ashwin.
+
+In order to see if we make the targets, it's useful to see the #
+of 'Closed/Won' in 'Existing Voters' and Total New Voters. Adding
+both these will give us an idea about how many people will vote for
+him.
