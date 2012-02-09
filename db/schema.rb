@@ -96,16 +96,16 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
   create_table "campaigns", :force => true do |t|
     t.integer  "user_id"
     t.integer  "assigned_to"
-    t.string   "name",                :limit => 64, :default => "",       :null => false
-    t.string   "access",              :limit => 8,  :default => "Public"
+    t.string   "name",                :limit => 64,                                :default => "",       :null => false
+    t.string   "access",              :limit => 8,                                 :default => "Public"
     t.string   "status",              :limit => 64
-    t.decimal  "budget"
+    t.decimal  "budget",                            :precision => 12, :scale => 2
     t.integer  "target_leads"
     t.float    "target_conversion"
-    t.decimal  "target_revenue"
+    t.decimal  "target_revenue",                    :precision => 12, :scale => 2
     t.integer  "leads_count"
     t.integer  "opportunities_count"
-    t.decimal  "revenue"
+    t.decimal  "revenue",                           :precision => 12, :scale => 2
     t.date     "starts_on"
     t.date     "ends_on"
     t.text     "objectives"
@@ -213,10 +213,10 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.string   "hint"
     t.string   "placeholder"
     t.string   "as",             :limit => 32
-    t.text     "collection",     :limit => 255
+    t.text     "collection"
     t.boolean  "disabled"
     t.boolean  "required"
-    t.integer  "maxlength",      :limit => 4
+    t.integer  "maxlength"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -253,9 +253,9 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.string   "skype",            :limit => 128
     t.integer  "age"
     t.boolean  "sex"
-    t.string   "father_name"
-    t.string   "voters_in_family"
-    t.string   "pan"
+    t.string   "father_name",      :limit => 128
+    t.integer  "voters_in_family"
+    t.string   "pan",              :limit => 20
     t.date     "visited_on"
   end
 
@@ -266,13 +266,13 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.integer  "user_id"
     t.integer  "campaign_id"
     t.integer  "assigned_to"
-    t.string   "name",             :limit => 64, :default => "",       :null => false
-    t.string   "access",           :limit => 8,  :default => "Public"
+    t.string   "name",             :limit => 64,                                 :default => "",       :null => false
+    t.string   "access",           :limit => 8,                                  :default => "Public"
     t.string   "source",           :limit => 32
     t.string   "stage",            :limit => 32
     t.integer  "probability"
-    t.decimal  "amount"
-    t.decimal  "discount"
+    t.decimal  "amount",                          :precision => 12, :scale => 2
+    t.decimal  "discount",                        :precision => 12, :scale => 2
     t.date     "closes_on"
     t.datetime "deleted_at"
     t.datetime "created_at"
@@ -280,25 +280,29 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.string   "background_info"
     t.integer  "age"
     t.boolean  "sex"
-    t.string   "father_name"
-    t.string   "voters_in_family"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "pan"
+    t.string   "father_name",      :limit => 128
+    t.integer  "voters_in_family"
+    t.string   "phone",            :limit => 128
+    t.string   "email",            :limit => 128
+    t.string   "pan",              :limit => 20
     t.date     "visited_on"
     t.string   "title"
-    t.string   "company"
-    t.string   "alt_email"
-    t.string   "mobile"
-    t.string   "referred_by"
+    t.string   "company",          :limit => 128
+    t.string   "alt_email",        :limit => 128
+    t.string   "mobile",           :limit => 20
+    t.string   "referred_by",      :limit => 128
     t.boolean  "do_not_call"
-    t.string   "facebook"
+    t.string   "facebook",         :limit => 128
     t.string   "blog"
-    t.string   "twitter"
-    t.string   "skype"
+    t.string   "twitter",          :limit => 128
+    t.string   "skype",            :limit => 128
     t.string   "linkedin"
-    t.string   "fax"
-    t.string   "department"
+    t.string   "fax",              :limit => 128
+    t.string   "department",       :limit => 128
+    t.string   "part_no",          :limit => 20
+    t.string   "sub_part_no",      :limit => 20
+    t.string   "sl_no",            :limit => 20
+    t.string   "qualification",    :limit => 128
   end
 
   add_index "opportunities", ["assigned_to"], :name => "index_opportunities_on_assigned_to"
