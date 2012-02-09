@@ -1,0 +1,264 @@
+-- MySQL dump 10.13  Distrib 5.5.20, for osx10.5 (i386)
+--
+-- Host: localhost    Database: fat_free_crm_development
+-- ------------------------------------------------------
+-- Server version	5.5.20
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `accounts`
+--
+
+DROP TABLE IF EXISTS `accounts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `assigned_to` int(11) DEFAULT NULL,
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `access` varchar(8) COLLATE utf8_unicode_ci DEFAULT 'Public',
+  `website` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `toll_free_phone` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fax` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `email` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `background_info` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `rating` int(11) NOT NULL DEFAULT '0',
+  `category` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `index_accounts_on_user_id_and_name_and_deleted_at` (`user_id`,`name`,`deleted_at`),
+  KEY `index_accounts_on_assigned_to` (`assigned_to`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `accounts`
+--
+
+LOCK TABLES `accounts` WRITE;
+/*!40000 ALTER TABLE `accounts` DISABLE KEYS */;
+INSERT INTO `accounts` VALUES(1,1,8,'Kempegowda Ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(2,1,8,'Chowdeswari Ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(3,1,8,'Atturu','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(4,1,8,'Yelahanka Satellite Town','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(5,1,8,'Jakkuru','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(6,1,8,'Thanisandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(7,1,8,'Byatarayanapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(8,1,8,'Kodigehalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(9,1,8,'Vidyaranyapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(10,1,8,'Dodda Bommasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(11,1,8,'Kuvempu Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(12,1,8,'Shettihalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(13,1,8,'Mallasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(14,1,8,'Bagalakunte','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(15,1,8,'T Dasarahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(16,1,8,'Jalahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(17,1,8,'J P Park','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(18,1,8,'Radhakrishna Temple Ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(19,1,8,'Sanjaya Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(20,1,8,'Ganga Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(21,1,8,'Hebbala','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(22,1,8,'Vishwanath Nagenahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(23,1,8,'Nagavara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(24,1,8,'HBR Layout','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(25,1,8,'Horamavu','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(26,1,8,'Ramamurthy Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(27,1,8,'Banasavadi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(28,1,8,'Kammanahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(29,1,8,'Kacharkanahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(30,1,8,'Kadugondanahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(31,1,8,'Kushal Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(32,1,8,'Kaval Bairasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(33,1,8,'Manorayanapalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(34,1,8,'Gangenahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(35,1,8,'Aramane Nagara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(36,1,8,'Mattikere','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(37,1,8,'Yeshwanthpura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(38,1,8,'HMT Ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(39,1,8,'Chokkasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(40,1,8,'Dodda Bidarakallu','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(41,1,8,'Peenya Industrial Area','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(42,1,8,'Lakshmi Devi Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(43,1,8,'Nandini Layout','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(44,1,8,'Marappana Palya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(45,1,8,'Malleswaram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(46,1,8,'Jayachamarajendra Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(47,1,8,'Devara Jeevanahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(48,1,8,'Muneshwara Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(49,1,8,'Lingarajapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(50,1,8,'Benniganahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(51,1,8,'Vijnanapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(52,1,8,'K R Puram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(53,1,8,'Basavanapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(54,1,8,'Hudi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(55,1,8,'Devasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(56,1,8,'A Narayanapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(57,1,8,'C V Raman Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(58,1,8,'New Tippasandara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(59,1,8,'Maruthi Seva Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(60,1,8,'Sagayarapuram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(61,1,8,'S K Garden','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(62,1,8,'Ramaswamy Palya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(63,1,8,'Jayamahal','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(64,1,8,'Rajamahal Guttahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(65,1,8,'Kadu Malleshwar Ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(66,1,8,'Subramanya Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(67,1,8,'Nagapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(68,1,8,'Mahalakshimpuram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(69,1,8,'Laggere','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(70,1,8,'Rajagopal Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(71,1,8,'Hegganahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(72,1,8,'Herohalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(73,1,8,'Kottegepalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(74,1,8,'Shakthi Ganapathi Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(75,1,8,'Shankar Matt','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(76,1,8,'Gayithri Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(77,1,8,'Dattatreya Temple','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(78,1,8,'Pulikeshinagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(79,1,8,'Sarvagna Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(80,1,8,'Hoysala Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(81,1,8,'Vijnana Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(82,1,8,'Garudachar Playa','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(83,1,8,'Kadugodi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(84,1,8,'Hagadur','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(85,1,8,'Dodda Nekkundi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(86,1,8,'Marathahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(87,1,8,'HAL Airport','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(88,1,8,'Jeevanbhima Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(89,1,8,'Jogupalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(90,1,8,'Halsoor','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(91,1,8,'Bharathi Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(92,1,8,'Shivaji Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(93,1,8,'Vasanth Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(94,1,8,'Gandhinagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(95,1,8,'Subhash Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(96,1,8,'Okalipuram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(97,1,8,'Dayananda Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(98,1,8,'Prakash Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(99,1,8,'Rajaji Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(100,1,8,'Basaveshwara Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(101,1,8,'Kamakshipalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(102,1,8,'Vrisabhavathi Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(103,1,8,'Kaveripura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(104,1,8,'Govindaraja Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(105,1,8,'Agrahara Dasarahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(106,1,8,'Dr. Raj Kumar Ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(107,1,8,'Shivanagara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(108,1,8,'Sriramamandir','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(109,1,8,'Chickpete','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(110,1,8,'Sampangiram Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(111,1,8,'Shantala Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(112,1,8,'Domlur','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(113,1,8,'Konena Agrahara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(114,1,8,'Agaram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(115,1,8,'Vannarpet','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(116,1,8,'Nilasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(117,1,8,'Shanthi Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(118,1,8,'Sudham Nagara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(119,1,8,'Dharmaraya Swamy Temple *','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(120,1,8,'Cottonpete','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(121,1,8,'Binnipete','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(122,1,8,'Kempapura Agrahara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(123,1,8,'Vijayanagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(124,1,8,'Hosahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(125,1,8,'Marenahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(126,1,8,'Maruthi Mandir ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(127,1,8,'Mudalapalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(128,1,8,'Nagarabhavi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(129,1,8,'Jnana Bharathi ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(130,1,8,'Ullalu','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(131,1,8,'Nayandahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(132,1,8,'Attiguppe','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(133,1,8,'Hampi Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(134,1,8,'Bapuji Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(135,1,8,'Padarayanapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(136,1,8,'Jagajivanaramnagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(137,1,8,'Rayapuram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(138,1,8,'Chalavadipalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(139,1,8,'K R Market','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(140,1,8,'Chamrajapet','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(141,1,8,'Azad Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(142,1,8,'Sunkenahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(143,1,8,'Vishveshwara Puram','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(144,1,8,'Siddapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(145,1,8,'Hombegowda Nagara','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(146,1,8,'Lakkasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(147,1,8,'Adugodi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(148,1,8,'Ejipura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(149,1,8,'Varthuru','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(150,1,8,'Bellanduru','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(151,1,8,'Koramangala','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(152,1,8,'Suddagunte Palya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(153,1,8,'Jayanagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(154,1,8,'Basavanagudi','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(155,1,8,'Hanumanth Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(156,1,8,'Srinagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(157,1,8,'Gali Anjenaya Temple ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(158,1,8,'Deepanjali Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(159,1,8,'Kengeri','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(160,1,8,'Rajarajeshwari Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(161,1,8,'Hosakerehalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(162,1,8,'Girinagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(163,1,8,'Katriguppe','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(164,1,8,'Vidyapeeta ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(165,1,8,'Ganesh Mandir ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(166,1,8,'Karisandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(167,1,8,'Yediyur','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(168,1,8,'Pattabhiram Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(169,1,8,'Byrasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(170,1,8,'Jayanagar East','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(171,1,8,'Gurappanapalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(172,1,8,'Madivala','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(173,1,8,'Jakkasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(174,1,8,'HSR Layout','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(175,1,8,'Bommanahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(176,1,8,'BTM Layout','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(177,1,8,'J P Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(178,1,8,'Sarakki','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(179,1,8,'Shakambari Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(180,1,8,'Banashankari Temple ward','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(181,1,8,'Kumaraswamy Layout','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(182,1,8,'Padmanabha Nagar','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(183,1,8,'Chikkalsandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(184,1,8,'Uttarahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(185,1,8,'Yelchenahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(186,1,8,'Jaraganahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(187,1,8,'Puttenahalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(188,1,8,'Bilekhalli','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(189,1,8,'Hongasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(190,1,8,'Mangammanapalya','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(191,1,8,'Singasandra','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(192,1,8,'Begur','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(193,1,8,'Arakere','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(194,1,8,'Gottigere','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(195,1,8,'Konankunte','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(196,1,8,'Anjanapura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(197,1,8,'Vasanthpura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+INSERT INTO `accounts` VALUES(198,1,8,'Hemmigepura','Public','','','','',NULL,'2012-02-07 01:42:23','2012-02-07 04:18:47','','',3,'other');
+/*!40000 ALTER TABLE `accounts` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2012-02-09 13:45:49
