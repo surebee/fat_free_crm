@@ -27,3 +27,4 @@ class AddDetailsToOpportunities < ActiveRecord::Migration
     add_column :opportunities, :qualification, :string, :limit => 128
   end
 end
+

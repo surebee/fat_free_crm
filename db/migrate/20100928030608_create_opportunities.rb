@@ -6,7 +6,7 @@ class CreateOpportunities < ActiveRecord::Migration
       t.references  :campaign
       t.integer     :assigned_to
       t.string      :name,     :limit => 64, :null => false, :default => ""
-      t.string      :access,   :limit => 8, :default => "Public" # %w(Private Public Shared)
+      t.string      :access,   :limit => 16, :default => "Public" # %w(Private Public Shared)
       t.string      :source,   :limit => 32
       t.string      :stage,    :limit => 32
       t.integer     :probability
@@ -16,8 +16,7 @@ class CreateOpportunities < ActiveRecord::Migration
       t.datetime    :deleted_at
       t.timestamps
     end
-
-    add_index :opportunities, [ :user_id, :name, :deleted_at ], :unique => true, :name => 'id_name_deleted'
+    add_index :opportunities, [ :user_id, :name, :deleted_at ], :unique => false, :name => 'id_name_deleted'
     add_index :opportunities, :assigned_to
   end
 

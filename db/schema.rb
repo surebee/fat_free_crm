@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.integer  "user_id"
     t.integer  "assigned_to"
     t.string   "name",            :limit => 64, :default => "",       :null => false
-    t.string   "access",          :limit => 8,  :default => "Public"
+    t.string   "access",          :limit => 16, :default => "Public"
     t.string   "website",         :limit => 64
     t.string   "toll_free_phone", :limit => 32
     t.string   "phone",           :limit => 32
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.integer  "user_id"
     t.integer  "assigned_to"
     t.string   "name",                :limit => 64,                                :default => "",       :null => false
-    t.string   "access",              :limit => 8,                                 :default => "Public"
+    t.string   "access",              :limit => 16,                                :default => "Public"
     t.string   "status",              :limit => 64
     t.decimal  "budget",                            :precision => 12, :scale => 2
     t.integer  "target_leads"
@@ -146,7 +146,7 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.integer  "reports_to"
     t.string   "first_name",      :limit => 64,  :default => "",       :null => false
     t.string   "last_name",       :limit => 64,  :default => "",       :null => false
-    t.string   "access",          :limit => 8,   :default => "Public"
+    t.string   "access",          :limit => 16,  :default => "Public"
     t.string   "title",           :limit => 64
     t.string   "department",      :limit => 64
     t.string   "source",          :limit => 32
@@ -230,7 +230,7 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.integer  "assigned_to"
     t.string   "first_name",       :limit => 64,  :default => "",       :null => false
     t.string   "last_name",        :limit => 64,  :default => "",       :null => false
-    t.string   "access",           :limit => 8,   :default => "Public"
+    t.string   "access",           :limit => 16,  :default => "Public"
     t.string   "title",            :limit => 64
     t.string   "company",          :limit => 64
     t.string   "source",           :limit => 32
@@ -267,7 +267,7 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
     t.integer  "campaign_id"
     t.integer  "assigned_to"
     t.string   "name",             :limit => 64,                                 :default => "",       :null => false
-    t.string   "access",           :limit => 8,                                  :default => "Public"
+    t.string   "access",           :limit => 16,                                 :default => "Public"
     t.string   "source",           :limit => 32
     t.string   "stage",            :limit => 32
     t.integer  "probability"
@@ -306,7 +306,7 @@ ActiveRecord::Schema.define(:version => 20120205145839) do
   end
 
   add_index "opportunities", ["assigned_to"], :name => "index_opportunities_on_assigned_to"
-  add_index "opportunities", ["user_id", "name", "deleted_at"], :name => "id_name_deleted", :unique => true
+  add_index "opportunities", ["user_id", "name", "deleted_at"], :name => "id_name_deleted"
 
   create_table "permissions", :force => true do |t|
     t.integer  "user_id"
