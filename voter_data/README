@@ -1,0 +1,17 @@
+For pgsql
+
+$ pgsql
+
+#\c fat_free_crm_development
+# delete from addresses;
+# delete from opportunities;
+# delete from accounts;
+# copy addresses from 'addresses-insert.csv'  using delimiters ',';
+# copy opportunities from 'opportunities-insert.csv'  using delimiters ',';
+# copy accounts from 'accounts-insert.csv'  using delimiters ',';
+# SELECT setval('addresses_id_seq', (SELECT MAX(id) from "addresses"));
+# SELECT setval('opportunities_id_seq', (SELECT MAX(id) from "opportunities"));
+# SELECT setval('accounts_id_seq', (SELECT MAX(id) from "accounts"));
+
+Then the app should be updated with the records and should be able to 
+create new records...
